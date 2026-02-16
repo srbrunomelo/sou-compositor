@@ -5,6 +5,7 @@ import "./globals.css";
 import PlayerBar from "@/src/shared/components/PlayerBar";
 import AudioEngine from "@/src/shared/components/AudioEngine";
 import { PlayerProvider } from "@/src/app/providers/player";
+import { GTM } from "./providers/GTM";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,6 +33,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <PlayerProvider>
+          <GTM />
           {children}
 
           <PlayerBar />
