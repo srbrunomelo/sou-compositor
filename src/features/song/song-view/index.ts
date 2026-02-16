@@ -1,0 +1,1 @@
+export {default as SongViewMain} from './ui/song-view'
