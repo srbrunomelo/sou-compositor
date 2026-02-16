@@ -30,7 +30,7 @@ export default function SongViewMain({ song }: { song: Song }) {
     }
   };
 
-  const shareUrl = typeof window !== "undefined" ? window.location : "";
+  const shareUrl = `https://soucompositor.com.br/composicao/${song.categorySlug}/${song.slug}`;
   const shareTitle = `Confira a música "${song.title} - ${song.category}" de nosso compositor!`;
 
   return (
