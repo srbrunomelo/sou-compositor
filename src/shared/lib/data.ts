@@ -6,6 +6,35 @@ export const categories: Category[] = ["Todos", "Gospel", "Pagode", "Sertanejo",
 
 export const songs: Song[] = [
   {
+    id: "6",
+    title: "Para de Gracinha",
+    category: "Pagode",
+    categorySlug: slugify('Pagode'),  
+    slug: slugify('Para de Gracinha'),
+    duration: 234, 
+    artist: "Bruno Melo", 
+    coverUrl: '/images/cover/pagode.png',
+    audioUrl: '/songs-web/para-de-gracinha.mp3',
+    description: "",
+    lyrics: `
+      Olha nos meus olhos ce vai perceber
+      O quanto sua falta já me fez sofrer
+      estou te ligando aqui pra te pedir perdão
+      tente entender
+
+      sua insegurança, me fez perceber
+      O quanto é importante, sempre te dizer 
+      Que sem você a vida perde a razão
+      Volta pra mim, Não faz assim 
+
+      Eu te quero baby, para de gracinha
+      Eu te quero baby, você toda minha
+      (Ah-ah-ah)
+      Eu te quero baby, para de gracinha
+      Eu te quero baby, você toda minha
+      `
+  },
+  {
     id: "1",
     title: "Feito Louca",
     category: "Funk",
@@ -174,6 +203,7 @@ export const songs: Song[] = [
       Eu te quero além de tudo
       `
   },
+    
 ];
 
 export const getCategoryBySlug = (slug: string) => { 
