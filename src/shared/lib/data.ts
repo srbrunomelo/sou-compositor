@@ -1,8 +1,8 @@
 import { Track } from "../types/types";
 import { slugify } from "../utils/seo";
-export type Category = "Todos" | "Gospel" | "Pagode" | "Sertanejo" | "Funk";
+export type Category = "Todos" | "Gospel" | "Pagode" | "Sertanejo" | "Funk" | "Pop";
 export type Song = Track
-export const categories: Category[] = ["Todos", "Gospel", "Pagode", "Sertanejo", "Funk"];
+export const categories: Category[] = ["Todos", "Gospel", "Pagode", "Sertanejo", "Funk", "Pop"];
 
 export const songs: Song[] = [
   {
@@ -32,6 +32,96 @@ export const songs: Song[] = [
       (Ah-ah-ah)
       Eu te quero baby, para de gracinha
       Eu te quero baby, você toda minha
+      `
+  },
+  {
+    id: "9",
+    title: "Você e Eu",
+    category: "Sertanejo",
+    categorySlug: slugify('Sertanejo'),  
+    slug: slugify('Você e Eu'),
+    duration: 93, 
+    artist: "Bruno Melo", 
+    coverUrl: '/images/cover/sertanejo.png',
+    audioUrl: '/songs-web/voce-e-eu.mp3',
+    description: "",
+    lyrics: `  
+        Não duvide de mim
+        Pois eu provo que eu posso ser o seu amor outra vez
+        Não me esnobe assim
+        Eu sei que teu sorriso é tão triste sem os olhos meus
+        A primavera não tem cor
+        As noites são tão frias sem você
+        Meu coração não aguenta de dor
+        Eu preciso de uma chance pra te ter
+  
+        Eu quero ver o teu sorriso que um dia foi o meu
+        Eu quero você e eu
+        Sentir o teu perfume misturado com o meu
+        Deixa logo de besteira e beija eu
+
+        Beija eu
+        Deixa logo de besteira e beija eu
+      `
+  },
+  {
+    id: "8",
+    title: "Sol & Mar",
+    category: "Pop",
+    categorySlug: slugify('Pop'),  
+    slug: slugify('Sol & Mar'),
+    duration: 125, 
+    artist: "Bruno Melo", 
+    coverUrl: '/images/cover/pop.png',
+    audioUrl: '/songs-web/sol-mar.mp3',
+    description: "",
+    lyrics: `  
+      Eu, assim como você
+      Tô esperando o sol raiar pra eu ir aí te ver
+      [Verse 2]
+      Nós, juntinhos no verão.
+      Curtindo o fim de tarde e o jogo do vascão
+
+      O sol
+      O mar
+      Você
+      Combinação perfeita 
+      `
+  },
+  {
+    id: "7",
+    title: "Nem tentando",
+    category: "Sertanejo",
+    categorySlug: slugify('Sertanejo'),  
+    slug: slugify('Nem tentando'),
+    duration: 105, 
+    artist: "Bruno Melo", 
+    coverUrl: '/images/cover/sertanejo.png',
+    audioUrl: '/songs-web/nem-tentando.mp3',
+    description: "",
+    lyrics: ` 
+      Você anda por aí brincando de fazer amor
+      Mas eu sei em mim foi quem  você pensou
+      Quando ele não fez o que você queria
+      Sempre fui eu
+
+      Sei todos os mistérios desse corpo seu
+      Tudo era perfeito, só você e eu, mas acabou
+      Só resta dor
+
+      Eu sei
+      Sei que ainda lembra dos versos de amor
+      Sei que ainda o sonho não se apagou 
+      Sei que quando você vai dormir me chama
+
+      Não tem como apagar o que a gente viveu
+      Era tão perfeito, só você e eu
+      Ficou gravado na memória
+      Nem tentando eu consigo te esquecer
+      Você se faz presente em cada amanhecer, em cada verso
+      Não tem como apagar este amor
+
+      Como apagar este amor
       `
   },
   {
