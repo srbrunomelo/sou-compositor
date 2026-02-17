@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 
 import PlayerBar from "@/src/shared/components/PlayerBar";
 import AudioEngine from "@/src/shared/components/AudioEngine";
@@ -27,6 +28,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <PlayerProvider>
+          <Analytics />
           <GTM />
           {children}
 
