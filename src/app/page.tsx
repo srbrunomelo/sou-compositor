@@ -1,6 +1,7 @@
 import { Hero } from "@/src/shared/components/Hero";
 import { Works } from "@/src/shared/components/Works";
 import { Contact } from "@/src/shared/components/Contact";
+import { BlogPreview } from "@/src/shared/components/BlogPreview";
 
 import MainLayout from "@/src/shared/components/main-layout";
 import { Metadata } from "next";
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
       "Procurando sua próxima música de trabalho? Confira meu portfólio de composições.",
     type: "website",
     locale: "pt_BR",
-    images: ["/og-image.jpg"],
+    images: ["/images/cover/gospel.png"],
   },
   alternates: {
     canonical: "https://soucompositor.com.br",
@@ -60,6 +61,7 @@ export default function Home() {
       />
       <Hero />
       <Works />
+      <BlogPreview />
       <Contact />
     </MainLayout>
   );

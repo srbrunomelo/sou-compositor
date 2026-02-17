@@ -1,0 +1,1 @@
+export { default as PostViewWrapper } from './ui/post-view'

@@ -26,13 +26,7 @@ export const generateMetadata = async ({ params }: PageProps) => {
     return {
       title: generateSongTitle(song.title, song.category),
       description: generateSongDescription(song),
-      keywords: [
-        song.category,
-        song.title,
-        "Bruno Melo",
-        "Composição Musical",
-        "lançamento",
-      ],
+      keywords: [song.category, song.title, "Composição Musical", "lançamento"],
       openGraph: {
         title: generateSongTitle(song.title, song.category),
         description: generateSongDescription(song),
@@ -52,7 +46,7 @@ export default async function MusicView({ params }: PageProps) {
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-serif mb-4">Música não encontrada</h1>
-          <Link href="/">
+          <Link href={"/"}>
             <Button variant="default">Voltar ao Início</Button>
           </Link>
         </div>
@@ -66,10 +60,10 @@ export default async function MusicView({ params }: PageProps) {
       <div className="min-h-screen bg-background pb-24">
         <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/40">
           <div className="container mx-auto px-4 h-16 flex items-center">
-            <Link href="/">
+            <Link href={`/compositor-${song.categorySlug}`}>
               <button className="flex items-center cursor-pointer gap-2 text-muted-foreground hover:text-primary transition-colors text-sm font-medium">
                 <ArrowLeft className="w-4 h-4" />
-                Voltar ao Início
+                Ver todas composições de {song.category}
               </button>
             </Link>
           </div>

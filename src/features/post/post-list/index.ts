@@ -1,0 +1,1 @@
+export {default as PostListWrapper} from "./ui/post-list";

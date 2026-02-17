@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next';
 import { songs, categories } from "@/src/shared/lib/data"; 
 import { slugify } from '@/src/shared/utils/seo';
+import { blogPosts } from '../shared/lib/blogData';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://soucompositor.com.br';
@@ -10,6 +11,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(),
     changeFrequency: 'daily' as const,
     priority: 1,
+  },{
+    url: `${baseUrl}/blog`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly' as const,
+    priority: 0.9,
   }];
 
   const categoryRoutes = categories
@@ -33,5 +39,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     };
   });
 
-  return [...staticRoutes, ...categoryRoutes, ...songRoutes];
+  const blogRoutes = blogPosts.map((post) => {
+    const postSlug = slugify(post.title);
+
+    return {
+      url: `${baseUrl}/blog/${postSlug}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.6,
+    };
+
+  });
+
+  return [...staticRoutes, ...categoryRoutes, ...songRoutes, ...blogRoutes];
 }

@@ -51,6 +51,16 @@ export default function MainLayout({
             <button
               onClick={() =>
                 document
+                  .getElementById("blog-preview")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
+              className="hover:text-primary transition-colors cursor-pointer"
+            >
+              Notícias
+            </button>
+            <button
+              onClick={() =>
+                document
                   .getElementById("contact")
                   ?.scrollIntoView({ behavior: "smooth" })
               }
