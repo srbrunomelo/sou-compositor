@@ -33,6 +33,7 @@ export function SongJsonLd({ song }: { song: Song }) {
 
   return (
     <script
+      id={`soung-${song.id}`}
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
     />

@@ -26,6 +26,18 @@ export const generateMetadata = async ({ params }: PageProps) => {
     return {
       title: generateSongTitle(song.title, song.category),
       description: generateSongDescription(song),
+      keywords: [
+        song.category,
+        song.title,
+        "Bruno Melo",
+        "Composição Musical",
+        "lançamento",
+      ],
+      openGraph: {
+        title: generateSongTitle(song.title, song.category),
+        description: generateSongDescription(song),
+        images: [song.coverUrl],
+      },
     };
   }
 };
