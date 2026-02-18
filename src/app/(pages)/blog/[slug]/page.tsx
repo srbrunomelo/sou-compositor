@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { blogPosts } from "@/src/shared/lib/blogData";
 import { Button } from "@/src/shared/components/ui/button";
 import { PostViewWrapper } from "@/src/features/post/post-view";
 import { ArrowLeft, Music } from "lucide-react";
