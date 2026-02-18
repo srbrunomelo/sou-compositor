@@ -1,0 +1,1 @@
+export { default as BlogLatestList } from './ui/blog-latest-list'

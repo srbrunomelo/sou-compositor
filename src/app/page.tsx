@@ -9,7 +9,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: {
     default: "Compositor Profissional | Sertanejo, Gospel, Funk e Pagode",
-    template: "%s | Bruno Melo",
+    template: "%s | Sou Compositor",
   },
   description:
     "Transforme sua carreira com composições inéditas. Especialista em hits de Sertanejo, letras Gospel ungidas, Funk e Pagode. Entre em contato para guias exclusivas.",

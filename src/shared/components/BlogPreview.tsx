@@ -1,19 +1,13 @@
-"use client";
-
-import { motion } from "framer-motion";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-} from "@/src/shared/components/ui/card";
-import { ArrowRight, Calendar } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { Button } from "./ui/button";
-import Image from "next/image";
-import { blogPosts } from "../lib/blogData";
+import { fetchHygraphQuery } from "../lib/fetch-hygraph-query";
+import { latest } from "@/src/shared/query/post";
+import { BlogLatestList } from "@/src/features/post/post-latest";
 
-export function BlogPreview() {
+export async function BlogPreview() {
+  const data = await fetchHygraphQuery(latest(3), "posts-latest");
+
   return (
     <section id="blog-preview" className="py-24 px-4 md:px-6 bg-secondary/10">
       <div className="container mx-auto max-w-7xl">
@@ -39,53 +33,7 @@ export function BlogPreview() {
           </Link>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {blogPosts.slice(0, 3).map((post, index) => (
-            <motion.div
-              key={post.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-            >
-              <Card className="bg-card border-border/50 overflow-hidden h-full flex flex-col group hover:border-primary/30 transition-colors">
-                <div className="aspect-video overflow-hidden">
-                  <Image
-                    width={400}
-                    height={350}
-                    src={post.image}
-                    alt={post.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
-                <CardHeader className="space-y-2">
-                  <div className="flex items-center gap-2 text-xs text-primary font-mono uppercase tracking-wider">
-                    <Calendar className="w-3 h-3" />
-                    {post.date}
-                  </div>
-                  <h3 className="text-xl font-serif font-bold leading-tight group-hover:text-primary transition-colors">
-                    {post.title}
-                  </h3>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground text-sm line-clamp-3">
-                    {post.excerpt}
-                  </p>
-                </CardContent>
-                <CardFooter className="mt-auto pt-4">
-                  <Link href={`/blog/${post.slug}`}>
-                    <Button
-                      variant="link"
-                      className="p-0 text-primary font-bold cursor-pointer"
-                    >
-                      Ler mais →
-                    </Button>
-                  </Link>
-                </CardFooter>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
+        <BlogLatestList latestPosts={data.posts} />
       </div>
     </section>
   );

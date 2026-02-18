@@ -43,8 +43,6 @@ export default async function Allworks({ params }: Props) {
 
   const config = getCategoryBySlug(slug);
 
-  console.log("config", config);
-
   return (
     <MainLayout>
       <Works defaultCategory={config} />

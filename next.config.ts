@@ -9,6 +9,11 @@ images: {
         hostname: 'images.unsplash.com',
         port: '', 
       },
+      {
+        protocol: 'https',
+        hostname: 'ap-south-1.graphassets.com',
+        port: '', 
+      },
     ],
   }, 
 };

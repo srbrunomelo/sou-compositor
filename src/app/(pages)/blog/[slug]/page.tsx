@@ -4,6 +4,9 @@ import { Button } from "@/src/shared/components/ui/button";
 import { PostViewWrapper } from "@/src/features/post/post-view";
 import { ArrowLeft, Music } from "lucide-react";
 
+import { fetchHygraphQuery } from "@/src/shared/lib/fetch-hygraph-query";
+import { postBySlug } from "@/src/shared/query/post";
+
 type PageProps = {
   params: {
     id: string;
@@ -13,7 +16,9 @@ type PageProps = {
 
 export const generateMetadata = async ({ params }: PageProps) => {
   const { slug } = await params;
-  const post = blogPosts.find((p) => p.slug === slug);
+
+  const data = await fetchHygraphQuery(postBySlug(slug), `post-${slug}`);
+  const post = data.post;
 
   if (post) {
     return {
@@ -31,7 +36,8 @@ export const generateMetadata = async ({ params }: PageProps) => {
 
 export default async function BlogPost({ params }: PageProps) {
   const { slug } = await params;
-  const post = blogPosts.find((p) => p.slug === slug);
+  const data = await fetchHygraphQuery(postBySlug(slug), `post-${slug}`);
+  const post = data.post;
 
   if (!post) {
     return (

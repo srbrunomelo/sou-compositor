@@ -1,7 +1,9 @@
 import { PostListWrapper } from "@/src/features/post/post-list";
 import { Contact } from "@/src/shared/components/Contact";
-import { ArrowLeft } from "lucide-react";
+import { fetchHygraphQuery } from "@/src/shared/lib/fetch-hygraph-query";
+import { posts } from "@/src/shared/query/post";
 
+import { ArrowLeft } from "lucide-react";
 import { Metadata } from "next";
 import Link from "next/link";
 
@@ -12,7 +14,9 @@ export const metadata: Metadata = {
   },
 };
 
-export default function PostList() {
+export default async function PostList() {
+  const data = await fetchHygraphQuery(posts, "posts");
+
   return (
     <>
       <div className="min-h-screen bg-background pb-24">
@@ -27,7 +31,7 @@ export default function PostList() {
           </div>
         </nav>
 
-        <PostListWrapper />
+        <PostListWrapper posts={data.posts} />
         <Contact />
       </div>
     </>

@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { Calendar } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import RichText from "@/src/shared/components/RichText";
 
 import {
   FacebookShareButton,
@@ -26,7 +27,7 @@ export default function PostView(post: BlogPost) {
         <Image
           width={1600}
           height={500}
-          src={post.image}
+          src={post.image.url}
           alt={post.title}
           className="w-full h-full object-cover"
         />
@@ -58,7 +59,7 @@ export default function PostView(post: BlogPost) {
           className="prose prose-invert prose-lg max-w-none"
         >
           <div className="whitespace-pre-line text-muted-foreground text-xl leading-relaxed font-sans">
-            {post.content}
+            <RichText content={post.content.raw as any} />
           </div>
         </motion.div>
 

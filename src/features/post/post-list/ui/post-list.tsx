@@ -4,12 +4,16 @@ import Link from "next/link";
 
 import { Button } from "@/src/shared/components/ui/button";
 import { Card } from "@/src/shared/components/ui/card";
-import { blogPosts } from "@/src/shared/lib/blogData";
+import { BlogPost } from "@/src/shared/lib/blogData";
 import { Calendar } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-export default function PostList() {
+type PostListProps = {
+  posts: BlogPost[];
+};
+
+export default function PostList({ posts }: PostListProps) {
   return (
     <main className="pt-32 container mx-auto px-4 max-w-5xl">
       <motion.div
@@ -24,7 +28,7 @@ export default function PostList() {
       </motion.div>
 
       <div className="grid gap-12">
-        {blogPosts.map((post, index) => (
+        {posts.map((post, index) => (
           <motion.div
             key={post.id}
             initial={{ opacity: 0, y: 20 }}
@@ -37,7 +41,7 @@ export default function PostList() {
                   <Image
                     width={1600}
                     height={550}
-                    src={post.image}
+                    src={post.image.url}
                     alt={post.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />

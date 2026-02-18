@@ -1,7 +1,11 @@
 import { MetadataRoute } from 'next';
 import { songs, categories } from "@/src/shared/lib/data"; 
 import { slugify } from '@/src/shared/utils/seo';
-import { blogPosts } from '../shared/lib/blogData';
+import { BlogPost } from '@/src/shared/lib/blogData';
+
+import { postsForSiteMap } from "@/src/shared/query/post";
+import { fetchHygraphQuery } from "@/src/shared/lib/fetch-hygraph-query";
+const data = await fetchHygraphQuery(postsForSiteMap, "posts-sitemap");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://soucompositor.com.br';
@@ -39,16 +43,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     };
   });
 
-  const blogRoutes = blogPosts.map((post) => {
-    const postSlug = slugify(post.title);
-
+  const blogRoutes = data.posts.map((post: BlogPost) => {
     return {
-      url: `${baseUrl}/blog/${postSlug}`,
+      url: `${baseUrl}/blog/${post.slug}`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.6,
     };
-
   });
 
   return [...staticRoutes, ...categoryRoutes, ...songRoutes, ...blogRoutes];
