@@ -1,11 +1,15 @@
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
+import { GoogleAnalytics } from "@next/third-parties/google";
+
+import "./globals.css";
 
 import PlayerBar from "@/src/shared/components/PlayerBar";
 import AudioEngine from "@/src/shared/components/AudioEngine";
 import { PlayerProvider } from "@/src/app/providers/player";
 import { GTM } from "./providers/GTM";
+
+const GA_ID = process.env.NEXT_PUBLIC_ANALYTICS_ID || "GTM-KSWBF6KX";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,6 +42,7 @@ export default function RootLayout({
 
           <PlayerBar />
           <AudioEngine />
+          <GoogleAnalytics gaId={GA_ID} />
         </PlayerProvider>
       </body>
     </html>

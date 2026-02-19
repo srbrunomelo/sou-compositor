@@ -12,6 +12,8 @@ import Image from "next/image";
 import { usePlayer } from "@/src/app/providers/player";
 import { slugify } from "@/src/shared/utils/seo";
 
+import { event } from "@/src/shared/lib/gtag";
+
 export function Hero() {
   const { state, dispatch } = usePlayer();
   const song = songs[0];
@@ -24,6 +26,12 @@ export function Hero() {
   const handlePlayTrack = (track: Song) => {
     if (state.currentTrack?.id === track.id) {
       dispatch({ type: "TOGGLE_PLAY" });
+
+      event({
+        action: "play_music",
+        category: "Music Player",
+        label: `${track.artist} - ${track.title} (${track.id})`,
+      });
     } else {
       dispatch({ type: "SET_TRACK", payload: track });
     }

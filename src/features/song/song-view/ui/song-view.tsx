@@ -19,15 +19,31 @@ import { generateSongDescription, slugify } from "@/src/shared/utils/seo";
 import { usePlayer } from "@/src/app/providers/player";
 import { Works } from "@/src/shared/components/Works";
 
+import { event } from "@/src/shared/lib/gtag";
+
 export default function SongViewMain({ song }: { song: Song }) {
   const { state, dispatch } = usePlayer();
 
   const handlePlayTrack = (track: Song) => {
     if (state.currentTrack?.id === track.id) {
       dispatch({ type: "TOGGLE_PLAY" });
+
+      event({
+        action: "play_music",
+        category: "Music Player",
+        label: `${track.artist} - ${track.title} (${track.id})`,
+      });
     } else {
       dispatch({ type: "SET_TRACK", payload: track });
     }
+  };
+
+  const handleBuyClick = () => {
+    event({
+      action: "buy_music",
+      category: "Solicitar Liberação",
+      label: `${song.artist} - ${song.title} (${song.id})`,
+    });
   };
 
   const shareUrl = `https://soucompositor.com.br/composicao/${song.categorySlug}/${song.slug}`;
@@ -120,7 +136,10 @@ export default function SongViewMain({ song }: { song: Song }) {
           </div>
 
           <Link href="/#contact">
-            <Button className="w-full h-12 bg-primary text-primary-foreground hover:bg-primary/90 text-lg shadow-lg">
+            <Button
+              onClick={handleBuyClick}
+              className="w-full h-12 bg-primary text-primary-foreground hover:bg-primary/90 text-lg shadow-lg"
+            >
               Solicitar Liberação
             </Button>
           </Link>

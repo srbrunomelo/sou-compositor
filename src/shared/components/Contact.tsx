@@ -1,10 +1,18 @@
 "use client";
 
+import { event } from "@/src/shared/lib/gtag";
+
 import { motion } from "framer-motion";
 import { Phone, MapPin } from "lucide-react";
 
 export function Contact() {
   function openWhatsApp() {
+    event({
+      action: "aplication_contact",
+      category: "Contato via WhatsApp",
+      label: `Contato via WhatsApp - ${new Date().toISOString()}`,
+    });
+
     const message = "Olá, gostaria de saber mais sobre as composições.";
     const url = `https://api.whatsapp.com/send?phone=+5527995169328&text=${encodeURIComponent(message)}`;
     window.open(url, "_blank");

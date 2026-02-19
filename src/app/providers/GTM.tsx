@@ -1,6 +1,6 @@
 import Script from "next/script";
 
-const GTM_ID = "GTM-KSWBF6KX";
+const GTM_ID = process.env.NEXT_PUBLIC_ANALYTICS_ID || "GTM-KSWBF6KX";
 
 export function GTM() {
   return (

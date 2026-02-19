@@ -22,6 +22,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePlayer } from "@/src/app/providers/player";
 
+import { event } from "@/src/shared/lib/gtag";
+
 interface SongCardProps {
   song: Song;
 }
@@ -32,6 +34,12 @@ export function SongCard({ song }: SongCardProps) {
   const handlePlayTrack = (track: Song) => {
     if (state.currentTrack?.id === track.id) {
       dispatch({ type: "TOGGLE_PLAY" });
+
+      event({
+        action: "play_music",
+        category: "Music Player",
+        label: `${track.artist} - ${track.title} (${track.id})`,
+      });
     } else {
       dispatch({ type: "SET_TRACK", payload: track });
     }
