@@ -1,5 +1,5 @@
 
-export const GA_TRACKING_ID = process.env.NEXT_PUBLIC_ANALYTICS_ID || "GTM-KSWBF6KX";
+export const GA_TRACKING_ID = process.env.NEXT_PUBLIC_ANALYTICS_ID || "G-MF049NCW6F";
 
 export const pageview = (url: string) => {
   if (typeof window.gtag !== 'undefined') {

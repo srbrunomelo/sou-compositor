@@ -9,7 +9,7 @@ import AudioEngine from "@/src/shared/components/AudioEngine";
 import { PlayerProvider } from "@/src/app/providers/player";
 import { GTM } from "./providers/GTM";
 
-const GA_ID = process.env.NEXT_PUBLIC_ANALYTICS_ID || "GTM-KSWBF6KX";
+const GA_ID = process.env.NEXT_PUBLIC_ANALYTICS_ID || "G-MF049NCW6F";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
