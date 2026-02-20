@@ -31,7 +31,7 @@ export default function SongViewMain({ song }: { song: Song }) {
       event({
         action: "play_music",
         category: "Music Player",
-        label: `${track.artist} - ${track.title} (${track.id})`,
+        label: `${track.artist} - (${track.id})`,
       });
     } else {
       dispatch({ type: "SET_TRACK", payload: track });

@@ -1,11 +1,11 @@
 import { Track } from "../types/types";
 import { slugify } from "../utils/seo";
-export type Category = "Todos" | "Gospel" | "Pagode" | "Sertanejo" | "Funk" | "Pop";
+export type Category = "Todos" | "Gospel" | "Pagode" | "Sertanejo" | "Funk" | "Pop" | "Reggae";
 export type Song = Track
-export const categories: Category[] = ["Todos", "Gospel", "Pagode", "Sertanejo", "Funk", "Pop"];
+export const categories: Category[] = ["Todos", "Gospel", "Pagode", "Sertanejo", "Funk", "Pop", "Reggae"];
 
 export const songs: Song[] = [
-  {
+    {
     id: "6",
     title: "Para de Gracinha",
     category: "Pagode",
@@ -34,6 +34,94 @@ export const songs: Song[] = [
       Eu te quero baby, você toda minha
       `
   },
+  {
+    id: "7",
+    title: "Sol Nascer",
+    category: "Reggae",
+    categorySlug: slugify('Reggae'),  
+    slug: slugify('Sol Nascer'),
+    duration: 94, 
+    artist: "Bruno Melo", 
+    coverUrl: '/images/cover/reggae.png',
+    audioUrl: '/songs-web/sol-nascer.mp3',
+    description: "",
+    lyrics: ` 
+      Hoje eu acordei pra ver o sol nascer
+      E estar com você, ah, meu amor
+
+      De tudo que a gente já passou e viveu
+      A gente cresceu, ah, como a gente cresceu
+      Quase ninguém aceitou, duvidou do meu amor
+      Que bom que a gente passou por cima
+
+      Lembro quando você falou em relação ao meu humor
+      Que bom que te faço feliz, menina
+      `
+  },
+
+
+    {
+    id: "10",
+    title: "Sinto o seu fluir",
+    category: "Gospel",
+    categorySlug: slugify('Gospel'),  
+    slug: slugify('Sinto o seu fluir'),
+    duration: 192, 
+    artist: "Bruno Melo", 
+    coverUrl: '/images/cover/gospel.png',
+    audioUrl: '/songs-web/sinto-teu-fluir.mp3',
+    description: "",
+    lyrics: `  
+      Sinto o seu fluir
+      Tem fogo entre nós
+      Eu já posso sentir
+      Toda a tua glória, toda a tua glória 
+
+      Vem e muda este lugar
+      Pode morar aqui
+      Pode morar aqui 
+
+      [Bridge]
+      Vem com teu fogo (oh)
+      enche-me de novo (oh) 
+      `
+  },
+
+
+  {
+    id: "15",
+    title: "Rendido",
+    category: "Gospel",
+    categorySlug: slugify('Gospel'),  
+    slug: slugify('Rendido'),
+    duration: 109, 
+    artist: "Bruno Melo", 
+    coverUrl: '/images/cover/gospel.png',
+    audioUrl: '/songs-web/sol-nascer.mp3',
+    description: "",
+    lyrics: ` 
+
+      Rendido, eu estou aqui mais uma vez
+      Entrego em tuas mãos tudo o que tenho
+      Vem e enche-me de ti, com teu amor
+      Vem e enche-me de ti
+
+      Rendido, eu estou aqui mais uma vez
+      Entrego em tuas mãos tudo o que tenho
+      Vem e enche-me de ti, com teu amor
+      Vem e enche-me de ti
+
+      Vem e enche-me de ti, com teu amor
+      Vem e enche-me de ti 
+
+      Vem e enche-me de ti, com teu amor
+      Vem e enche-me de ti
+      Enche-me de ti
+      `
+  },
+
+
+
   {
     id: "9",
     title: "Você e Eu",
@@ -89,7 +177,7 @@ export const songs: Song[] = [
       `
   },
   {
-    id: "7",
+    id: "17",
     title: "Nem tentando",
     category: "Sertanejo",
     categorySlug: slugify('Sertanejo'),  
