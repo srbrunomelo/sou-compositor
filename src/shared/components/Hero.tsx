@@ -64,6 +64,8 @@ export function Hero() {
 
           <div className="space-y-4">
             <h1 className="text-6xl md:text-8xl font-serif font-bold text-foreground tracking-tight leading-[0.9]">
+              <span className="text-primary italic">sou</span>
+              <br />
               Compositor
               <br />
               <span className="text-primary italic">de Hits</span>

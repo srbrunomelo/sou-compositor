@@ -25,9 +25,9 @@ export function Works({
       className="py-24 px-4 md:px-6 container mx-auto max-w-7xl"
     >
       <div className="flex flex-col items-center mb-16 space-y-4 text-center">
-        <h1 className="text-4xl md:text-5xl font-serif font-bold">
+        <h2 className="text-4xl md:text-5xl font-serif font-bold">
           Compositor de Músicas Inéditas para Artistas
-        </h1>
+        </h2>
         <div className="h-1 w-20 bg-primary rounded-full" />
         <p className="text-muted-foreground max-w-xl">
           Navegue por categorias para encontrar a sonoridade perfeita para seu
