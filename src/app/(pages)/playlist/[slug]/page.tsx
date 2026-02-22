@@ -8,6 +8,7 @@ import { Playlist } from "@/src/entities/playlist";
 import { Metadata } from "next";
 import { PlaylistView } from "@/src/features/playlist/playlist-view";
 import { Contact } from "@/src/shared/components/Contact";
+import Footer from "@/src/shared/components/Footer";
 
 type Props = {
   params: {
@@ -83,13 +84,7 @@ export default async function PlaylistPage({ params }: Props) {
       <PlaylistView playlist={playlist} />
 
       <Contact />
-      {/* Footer info */}
-      <div className="mt-12 pt-8 border-t border-border/30 text-center text-muted-foreground text-sm">
-        <p>© 2024 Rhaynner Liberato. Todos os direitos reservados.</p>
-        <p className="mt-2">
-          Esta playlist contém obras originais protegidas por direitos autorais.
-        </p>
-      </div>
+      <Footer />
     </div>
   );
 }

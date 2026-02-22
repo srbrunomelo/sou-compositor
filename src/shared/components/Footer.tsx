@@ -11,7 +11,7 @@ export default function Footer() {
         </p>
         <div className="mt-2 flex justify-center gap-4">
           <Link
-            href="https://www.instagram.com/gavetabruno/"
+            href="https://www.instagram.com/sou.compositor"
             className="hover:text-primary transition-colors"
             target="_blank"
           >
