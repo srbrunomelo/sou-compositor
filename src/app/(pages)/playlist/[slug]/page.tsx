@@ -77,7 +77,7 @@ export default async function PlaylistPage({ params }: Props) {
           </Link>
           <div className="flex items-center gap-2 font-serif font-bold text-lg">
             <Music className="w-5 h-5 text-primary" />
-            <span>{playlist.artist.name}</span>
+            <span>{playlist.artist?.name || "Playlist"}</span>
           </div>
         </div>
       </nav>
