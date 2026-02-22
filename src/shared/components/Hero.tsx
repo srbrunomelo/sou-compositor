@@ -6,13 +6,14 @@ import { Button } from "@/src/shared/components/ui/button";
 import { Badge } from "@/src/shared/components/ui/badge";
 import { ArrowDown, Play, Star } from "lucide-react";
 
-import { Song, songs } from "@/src/shared/lib/data";
+import { songs } from "@/src/shared/lib/data";
 import Link from "next/link";
 import Image from "next/image";
 import { usePlayer } from "@/src/app/providers/player";
 import { slugify } from "@/src/shared/utils/seo";
 
 import { event } from "@/src/shared/lib/gtag";
+import { Song } from "@/src/entities/song";
 
 export function Hero() {
   const { state, dispatch } = usePlayer();
@@ -40,13 +41,13 @@ export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       <div className="absolute inset-0 z-0">
-        {/* <Image
+        <Image
           width={2500}
           height={400}
           src="/images/system/hero-bg.png"
           alt="Background"
           className="w-full h-full object-cover opacity-40 scale-110"
-        /> */}
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/90 to-background" />
       </div>
 
@@ -64,8 +65,7 @@ export function Hero() {
 
           <div className="space-y-4">
             <h1 className="text-6xl md:text-8xl font-serif font-bold text-foreground tracking-tight leading-[0.9]">
-              <span className="text-primary italic">sou</span>
-              <br />
+              <span className="text-primary italic">sou </span>
               Compositor
               <br />
               <span className="text-primary italic">de Hits</span>
@@ -111,7 +111,7 @@ export function Hero() {
               <Image
                 width={500}
                 height={500}
-                src={song.coverUrl}
+                src={song.coverUrl.url}
                 title={song.title}
                 alt="Featured"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -137,7 +137,7 @@ export function Hero() {
                     {song.title}
                   </h2>
                   <p className="text-primary font-medium text-sm">
-                    {song.category}
+                    {song.categories[0].title}
                   </p>
                 </div>
                 <Badge variant="outline" className="font-mono text-xs">
@@ -148,7 +148,7 @@ export function Hero() {
                 {song.description}
               </p>
               <Link
-                href={`/composicao/${slugify(song.category)}/${slugify(song.title)}`}
+                href={`/composicao/${slugify(song.categories[0].slug)}/${slugify(song.title)}`}
               >
                 <Button
                   variant="link"
