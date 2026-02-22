@@ -39,7 +39,7 @@ export const generateMetadata = async ({ params }: PageProps) => {
       openGraph: {
         title: generateSongTitle(song),
         description: generateSongDescription(song),
-        images: [song.coverUrl],
+        images: [song.coverUrl.url],
       },
     };
   }
