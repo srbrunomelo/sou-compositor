@@ -17,7 +17,7 @@ import { Song } from "@/src/entities/song";
 
 export function Hero() {
   const { state, dispatch } = usePlayer();
-  const song = songs[0];
+  const song: Song = songs[0];
 
   const scrollToWorks = () => {
     const worksSection = document.getElementById("works");
@@ -147,9 +147,7 @@ export function Hero() {
               <p className="text-muted-foreground line-clamp-2">
                 {song.description}
               </p>
-              <Link
-                href={`/composicao/${slugify(song.categories[0].slug)}/${slugify(song.title)}`}
-              >
+              <Link href={`composicao/${song.categories[0].slug}/${song.slug}`}>
                 <Button
                   variant="link"
                   className="p-0 text-primary hover:text-primary/80 h-auto font-bold text-lg  cursor-pointer"

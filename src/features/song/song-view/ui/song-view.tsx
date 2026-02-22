@@ -52,6 +52,8 @@ export default function SongViewMain({ song }: { song: Song }) {
   const shareUrl = `${NEXT_PUBLIC_URL}/${song.categories[0].slug.replace("compositor-", "")}/${song.slug}`;
   const shareTitle = `Confira a música "${song.title}" de nosso compositor ${song.artist.name}!`;
 
+  console.log("song.categories[0].slug", song.categories[0].slug);
+
   return (
     <main className="pt-24 container mx-auto px-4 max-w-5xl">
       <div className="grid md:grid-cols-[400px_1fr] gap-12">
@@ -157,9 +159,9 @@ export default function SongViewMain({ song }: { song: Song }) {
             <h1 className="text-5xl md:text-6xl font-serif font-bold tracking-tight">
               {song.title}
             </h1>
-            <p className="text-xl text-muted-foreground font-light leading-relaxed">
+            {/* <p className="text-xl text-muted-foreground font-light leading-relaxed">
               {generateSongDescription(song)} ...
-            </p>
+            </p> */}
           </header>
 
           {(song.lyrics && (
@@ -185,7 +187,7 @@ export default function SongViewMain({ song }: { song: Song }) {
         </motion.div>
       </div>
 
-      <ListSongsWrapper defaultCategory={song.categories[0].slug} />
+      {/* <ListSongsWrapper defaultCategory={song.categories[0].slug} /> */}
     </main>
   );
 }

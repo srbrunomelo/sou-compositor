@@ -1,5 +1,4 @@
-import { Song } from "@/src/entities/song";
-import { slugify } from "../utils/seo";
+import { Song } from "@/src/entities/song"; 
 export type Category = "Todos" | "Gospel" | "Pagode" | "Sertanejo" | "Funk" | "Pop" | "Reggae";
 export const categories: Category[] = ["Todos", "Gospel", "Pagode", "Sertanejo", "Funk", "Pop", "Reggae"];
 
@@ -12,7 +11,7 @@ export const songs: Song[] = [
       title: 'Pagode'
     }],
     active: true,
-    slug: slugify('Para de Gracinha'),
+    slug: 'para-de-gracinha',
     duration: 234, 
     artist: {
       name: "Bruno Melo",
