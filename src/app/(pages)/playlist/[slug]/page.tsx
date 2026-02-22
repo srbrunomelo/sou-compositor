@@ -18,14 +18,11 @@ type Props = {
 
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
-
   const response = await fetchHygraphQuery(
     playlistBySlug(slug),
     `playlist-${slug}}`,
   );
-
   const playlist = response.playlist as Playlist;
-
   return {
     title: playlist.title,
     description: playlist.description,

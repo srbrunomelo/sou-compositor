@@ -5,7 +5,7 @@ export const playlistsForSiteMap = `
       slug
     }
   }
-`;
+`; 
 
 export const playlistBySlug = (slug: string) => `
   query {
@@ -14,7 +14,7 @@ export const playlistBySlug = (slug: string) => `
       title
       description
       slug
-      artist {
+      artists {
         name
         username 
       }
