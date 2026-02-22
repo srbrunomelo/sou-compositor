@@ -4,15 +4,18 @@ import { slugify } from '@/src/shared/utils/seo';
 import { postsForSiteMap } from "@/src/shared/query/post";
 import { categoriesForSiteMap } from "@/src/shared/query/category";
 import { songForSiteMap } from '@/src/shared/query/song';
+import { playlistsForSiteMap } from '@/src/shared/query/playlist';
 import { fetchHygraphQuery } from "@/src/shared/lib/fetch-hygraph-query";
 
 import { Category } from '@/src/entities/category';
 import { Post } from '@/src/entities/post';
 import type { SongForSitemap } from '@/src/entities/song';
+import { Playlist } from '@/src/entities/playlist';
 
 const { posts } = await fetchHygraphQuery(postsForSiteMap, "posts-sitemap");
 const { categories }  = await fetchHygraphQuery(categoriesForSiteMap, "categories-sitemap");
 const { songs }  = await fetchHygraphQuery(songForSiteMap, "songs-sitemap");
+const { playlists }  = await fetchHygraphQuery(playlistsForSiteMap, "playlists-sitemap");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_URL || 'https://soucompositor.com.br';
@@ -57,5 +60,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     };
   });
 
-  return [...staticRoutes, ...categoryRoutes, ...songRoutes, ...blogRoutes];
+  const playlistsRoutes = playlists.map((playlist: Pick<Playlist, 'slug'>) => {
+    return {
+      url: `${baseUrl}/playlist/${playlist.slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.6,
+    };
+  });
+
+  return [...staticRoutes, ...categoryRoutes, ...songRoutes, ...blogRoutes, ...playlistsRoutes];
 }

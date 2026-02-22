@@ -1,4 +1,12 @@
 
+export const playlistsForSiteMap = `
+  query playlist {
+    playlists(last: 100) { 
+      slug
+    }
+  }
+`;
+
 export const playlistBySlug = (slug: string) => `
   query {
     playlist(where: { slug: "${slug}"} ) {

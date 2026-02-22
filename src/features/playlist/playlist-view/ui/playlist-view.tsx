@@ -3,7 +3,6 @@
 import { Playlist } from "@/src/entities/playlist";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { Button } from "@/src/shared/components/ui/button";
 import { Play, Pause, Clock } from "lucide-react";
 import { usePlayer } from "@/src/app/providers/player";
 import { event } from "@/src/shared/lib/gtag";
