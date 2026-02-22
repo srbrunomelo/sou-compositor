@@ -1,6 +1,7 @@
 export const fetchHygraphQuery = async (
   query: string,
-  revalidateTag: string
+  revalidateTag: string, 
+  revalidate: number = 60 * 60 * 24
 ) => {
   const response = await fetch(process.env.HYGRAPH_URL!, {
     method: "POST",
@@ -11,7 +12,7 @@ export const fetchHygraphQuery = async (
     },
     body: JSON.stringify({ query }),
     next: {
-      // revalidate: 864000, // 10 days
+      revalidate: revalidate,
       tags: [revalidateTag],
     },
   });
