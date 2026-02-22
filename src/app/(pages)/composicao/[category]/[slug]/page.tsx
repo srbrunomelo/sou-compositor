@@ -23,15 +23,21 @@ type PageProps = {
 export const generateMetadata = async ({ params }: PageProps) => {
   const { slug } = await params;
 
-  const { song } = await fetchHygraphQuery(songBySlug(slug), `song-${slug}`);
+  const response = await fetchHygraphQuery(songBySlug(slug), `song-${slug}`);
+  const song = response.song as Song;
 
   if (song) {
     return {
-      title: generateSongTitle(song.title, song.category),
+      title: generateSongTitle(song),
       description: generateSongDescription(song),
-      keywords: [song.category, song.title, "Composição Musical", "lançamento"],
+      keywords: [
+        song.categories[0].title,
+        song.title,
+        "Composição Musical",
+        "lançamento",
+      ],
       openGraph: {
-        title: generateSongTitle(song.title, song.category),
+        title: generateSongTitle(song),
         description: generateSongDescription(song),
         images: [song.coverUrl],
       },

@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {
       title: `Composições Inéditas de ${slug}`,
       description:
-        "Explore o portfólio de composições inéditas de Bruno Melo em diversos gêneros.",
+        "Explore o portfólio de composições inéditas em diversos gêneros.",
     };
   }
 
