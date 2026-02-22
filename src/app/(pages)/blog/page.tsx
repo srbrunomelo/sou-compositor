@@ -12,6 +12,9 @@ export const metadata: Metadata = {
     default: "Notícias sobre o mercado musical | Sou Compositor",
     template: "%s | soucompositor.com.br",
   },
+  openGraph: {
+    images: ["/images/system/compositor.png"],
+  },
 };
 
 export default async function PostList() {

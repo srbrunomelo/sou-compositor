@@ -55,7 +55,7 @@ const PlayerBar: React.FC = () => {
         <Image
           width={150}
           height={150}
-          src={state.currentTrack.coverUrl}
+          src={state.currentTrack.coverUrl.url}
           alt={state.currentTrack.title}
           className="w-14 h-14 rounded-lg shadow-lg object-cover"
         />
@@ -64,7 +64,7 @@ const PlayerBar: React.FC = () => {
             {state.currentTrack.title}
           </h4>
           <p className="text-xs text-slate-400 truncate">
-            {state.currentTrack.artist}
+            {state.currentTrack.artist.name}
           </p>
         </div>
         {/* <button className="ml-4 text-slate-400 hover:text-pink-500 transition-colors">

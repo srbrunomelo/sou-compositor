@@ -1,5 +1,7 @@
-// src/shared/components/SongJsonLd.tsx
-import { Song } from "@/src/shared/lib/data";
+import { Song } from "@/src/entities/song";
+
+const NEXT_PUBLIC_SITE_URL =
+  process.env.NEXT_PUBLIC_URL || "https://soucompositor.com.br";
 
 export function SongJsonLd({ song }: { song: Song }) {
   const jsonLd = {
@@ -7,7 +9,7 @@ export function SongJsonLd({ song }: { song: Song }) {
     "@type": "MusicComposition",
     name: song.title,
     description: song.description,
-    genre: song.category,
+    genre: song.categories[0].title,
     composer: {
       "@type": "Person",
       name: "Bruno Melo",
@@ -16,7 +18,7 @@ export function SongJsonLd({ song }: { song: Song }) {
     },
     publisher: {
       "@type": "Person",
-      name: "Bruno Melo",
+      name: song.artist.name,
     },
     // Se a letra estiver disponível, o Google pode indexar trechos dela
     lyrics: {
@@ -25,10 +27,10 @@ export function SongJsonLd({ song }: { song: Song }) {
     },
     // Caso você tenha uma imagem de capa (StaticImageData ou string)
     image:
-      typeof song.coverUrl === "string"
-        ? song.coverUrl
-        : (song.coverUrl as any).src,
-    url: `https://soucompositor.com.br/composicao/${song.id}`, // Use seu helper de slug se preferir
+      typeof song.coverUrl.url === "string"
+        ? song.coverUrl.url
+        : (song.coverUrl.url as string),
+    url: `${NEXT_PUBLIC_SITE_URL}/composicao/${song.categories[0].slug}/${song.slug}`,
   };
 
   return (

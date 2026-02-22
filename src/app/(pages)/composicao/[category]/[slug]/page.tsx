@@ -1,4 +1,3 @@
-import { getSongsBySlug } from "@/src/shared/lib/data";
 import { ArrowLeft } from "lucide-react";
 import { Button } from "@/src/shared/components/ui/button";
 
@@ -10,6 +9,10 @@ import {
   generateSongTitle,
 } from "@/src/shared/utils/seo";
 
+import { fetchHygraphQuery } from "@/src/shared/lib/fetch-hygraph-query";
+import { songBySlug } from "@/src/shared/query/song";
+import { Song } from "@/src/entities/song";
+
 type PageProps = {
   params: {
     slug: string;
@@ -20,7 +23,7 @@ type PageProps = {
 export const generateMetadata = async ({ params }: PageProps) => {
   const { slug } = await params;
 
-  const song = getSongsBySlug(slug);
+  const { song } = await fetchHygraphQuery(songBySlug(slug), `song-${slug}`);
 
   if (song) {
     return {
@@ -39,7 +42,8 @@ export const generateMetadata = async ({ params }: PageProps) => {
 export default async function MusicView({ params }: PageProps) {
   const { slug } = await params;
 
-  const song = getSongsBySlug(slug);
+  const response = await fetchHygraphQuery(songBySlug(slug), `song-${slug}`);
+  const song = response.song as Song;
 
   if (!song) {
     return (
@@ -60,10 +64,13 @@ export default async function MusicView({ params }: PageProps) {
       <div className="min-h-screen bg-background pb-24">
         <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/40">
           <div className="container mx-auto px-4 h-16 flex items-center">
-            <Link href={`/compositor-${song.categorySlug}`}>
+            <Link href={`/${song.categories[0].slug}`}>
               <button className="flex items-center cursor-pointer gap-2 text-muted-foreground hover:text-primary transition-colors text-sm font-medium">
                 <ArrowLeft className="w-4 h-4" />
-                Ver todas composições de {song.category}
+                Ver todas composições de{" "}
+                <span className="font-extrabold">
+                  {song.categories[0].title}
+                </span>
               </button>
             </Link>
           </div>

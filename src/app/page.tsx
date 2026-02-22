@@ -1,10 +1,10 @@
 import { Hero } from "@/src/shared/components/Hero";
-import { Works } from "@/src/shared/components/Works";
 import { Contact } from "@/src/shared/components/Contact";
 import { BlogPreview } from "@/src/shared/components/BlogPreview";
 
 import MainLayout from "@/src/shared/components/main-layout";
 import { Metadata } from "next";
+import { ListSongsWrapper } from "@/src/features/song/list-songs";
 
 export const metadata: Metadata = {
   title: {
@@ -19,6 +19,10 @@ export const metadata: Metadata = {
     "letras de música funk",
     "compositor de pagode",
     "venda de músicas",
+    "compositores",
+    "club",
+    "sou compositor",
+    "hits de sucesso",
   ],
   authors: [{ name: "Bruno Melo" }],
   openGraph: {
@@ -55,12 +59,12 @@ export default function Home() {
               "Funk",
               "Pagode",
             ],
-            image: "https://soucompositor.com.br/og-image.jpg",
+            image: "/images/system/compositor.png",
           }),
         }}
       />
       <Hero />
-      <Works />
+      <ListSongsWrapper defaultCategory="compositor-gospel" />
       <BlogPreview />
       <Contact />
     </MainLayout>

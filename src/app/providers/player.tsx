@@ -2,14 +2,14 @@
 
 import React, { createContext, useContext, useReducer, ReactNode } from "react";
 import { PlayerState, PlayerAction } from "@/src/shared/types/types";
-import { songs } from "@/src/shared/lib/data";
+import { songs } from "@/src/shared/lib/data"; /// PRECISAMOS LIDAR COM ISSO, PARA QUE AS MUSICA TOQUEM INFINITAMNETE NA APLICACAO
 
 const initialState: PlayerState = {
   currentTrack: null,
   isPlaying: false,
   volume: 0.7,
   progress: 0,
-  playlist: songs,
+  playlist: [], //songs, /// PRECISAMOS LIDAR COM ISSO, PARA QUE AS MUSICA TOQUEM INFINITAMNETE NA APLICACAO
   isMuted: false,
   shuffle: false,
   repeat: "all",

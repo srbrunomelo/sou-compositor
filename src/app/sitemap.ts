@@ -1,14 +1,21 @@
 import { MetadataRoute } from 'next';
-import { songs, categories } from "@/src/shared/lib/data"; 
-import { slugify } from '@/src/shared/utils/seo';
-import { BlogPost } from '@/src/shared/lib/blogData';
+import { slugify } from '@/src/shared/utils/seo'; 
 
 import { postsForSiteMap } from "@/src/shared/query/post";
+import { categoriesForSiteMap } from "@/src/shared/query/category";
+import { songForSiteMap } from '@/src/shared/query/song';
 import { fetchHygraphQuery } from "@/src/shared/lib/fetch-hygraph-query";
-const data = await fetchHygraphQuery(postsForSiteMap, "posts-sitemap");
+
+import { Category } from '@/src/entities/category';
+import { Post } from '@/src/entities/post';
+import type { SongForSitemap } from '@/src/entities/song';
+
+const { posts } = await fetchHygraphQuery(postsForSiteMap, "posts-sitemap");
+const { categories }  = await fetchHygraphQuery(categoriesForSiteMap, "categories-sitemap");
+const { songs }  = await fetchHygraphQuery(songForSiteMap, "songs-sitemap");
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://soucompositor.com.br';
+  const baseUrl = process.env.NEXT_PUBLIC_URL || 'https://soucompositor.com.br';
 
   const staticRoutes = [{
     url: baseUrl,
@@ -23,27 +30,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }];
 
   const categoryRoutes = categories
-    .filter((cat) => cat !== "Todos")
-    .map((cat) => ({
-      url: `${baseUrl}/compositor-${slugify(cat)}`,
+    .map((category: Pick<Category, 'slug'>) => ({
+      url: `${baseUrl}/${slugify(category.slug)}`,
       lastModified: new Date(),
       changeFrequency: 'weekly' as const,
       priority: 0.8,
     }));
 
-  const songRoutes = songs.map((song) => {
-    const catSlug = slugify(song.category.replace('/', '-'));
-    const songSlug = slugify(song.title);
-    
+  const songRoutes = songs.map((song: SongForSitemap) => {
+    const firstCategorySlug = song.categories[0].slug.replace('compositor-', '');
+
     return {
-      url: `${baseUrl}/composicao/${catSlug}/${songSlug}`,
+      url: `${baseUrl}/composicao/${firstCategorySlug}/${song.slug}`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.6,
     };
   });
 
-  const blogRoutes = data.posts.map((post: BlogPost) => {
+  const blogRoutes = posts.map((post: Pick<Post, 'slug'>) => {
     return {
       url: `${baseUrl}/blog/${post.slug}`,
       lastModified: new Date(),

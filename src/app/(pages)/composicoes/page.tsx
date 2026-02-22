@@ -1,6 +1,5 @@
-import { Works } from "@/src/shared/components/Works";
 import { Contact } from "@/src/shared/components/Contact";
-
+import { ListSongsWrapper } from "@/src/features/song/list-songs";
 import MainLayout from "@/src/shared/components/main-layout";
 import { Metadata } from "next";
 
@@ -25,14 +24,14 @@ export const metadata: Metadata = {
       "Procurando sua próxima música de trabalho? Confira meu portfólio de composições.",
     type: "website",
     locale: "pt_BR",
-    images: ["/og-image.jpg"], // Imagem que aparece no WhatsApp/Instagram
+    images: ["/images/system/compositor.png"],
   },
 };
 
 export default function Allworks() {
   return (
     <MainLayout>
-      <Works />
+      <ListSongsWrapper defaultCategory="compositor-sertanejo" />
       <Contact />
     </MainLayout>
   );

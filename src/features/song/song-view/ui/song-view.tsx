@@ -1,8 +1,7 @@
 "use client";
 
-import { Song } from "@/src/shared/lib/data";
 import { motion } from "framer-motion";
-import { Music, Tag, Play } from "lucide-react";
+import { Music, Tag, Play, Music2 } from "lucide-react";
 import { Button } from "@/src/shared/components/ui/button";
 import { Badge } from "@/src/shared/components/ui/badge";
 import {
@@ -15,11 +14,14 @@ import {
 } from "react-share";
 import Link from "next/link";
 import Image from "next/image";
-import { generateSongDescription, slugify } from "@/src/shared/utils/seo";
+import { generateSongDescription } from "@/src/shared/utils/seo";
 import { usePlayer } from "@/src/app/providers/player";
-import { Works } from "@/src/shared/components/Works";
 
 import { event } from "@/src/shared/lib/gtag";
+import { Song } from "@/src/entities/song";
+
+const NEXT_PUBLIC_URL =
+  process.env.NEXT_PUBLIC_URL || "https://soucompositor.com.br";
 
 export default function SongViewMain({ song }: { song: Song }) {
   const { state, dispatch } = usePlayer();
@@ -31,7 +33,7 @@ export default function SongViewMain({ song }: { song: Song }) {
       event({
         action: "play_music",
         category: "Music Player",
-        label: `${track.artist} - (${track.id})`,
+        label: `${track.title} - ${track.artist.name}`,
       });
     } else {
       dispatch({ type: "SET_TRACK", payload: track });
@@ -42,12 +44,12 @@ export default function SongViewMain({ song }: { song: Song }) {
     event({
       action: "buy_music",
       category: "Solicitar Liberação",
-      label: `${song.artist} - ${song.title} (${song.id})`,
+      label: `${song.artist.name} - ${song.title} (${song.id})`,
     });
   };
 
-  const shareUrl = `https://soucompositor.com.br/composicao/${song.categorySlug}/${song.slug}`;
-  const shareTitle = `Confira a música "${song.title} - ${song.category}" de nosso compositor!`;
+  const shareUrl = `${NEXT_PUBLIC_URL}/${song.categories[0].slug.replace("compositor-", "")}/${song.slug}`;
+  const shareTitle = `Confira a música "${song.title}" de nosso compositor ${song.artist.name}!`;
 
   return (
     <main className="pt-24 container mx-auto px-4 max-w-5xl">
@@ -61,7 +63,7 @@ export default function SongViewMain({ song }: { song: Song }) {
             <Image
               width={400}
               height={400}
-              src={song.coverUrl}
+              src={song.coverUrl.url}
               alt={song.title}
               className="w-full h-full object-cover"
             />
@@ -99,17 +101,17 @@ export default function SongViewMain({ song }: { song: Song }) {
               <div className="flex items-center gap-3 text-sm">
                 <Tag className="w-4 h-4 text-primary" />
                 <span className="text-muted-foreground">Categoria:</span>
-                <Link href={`/compositor-${slugify(song.category)}`}>
+                <Link href={song.categories[0].slug}>
                   <Badge variant="outline" className="text-xs">
-                    {song.category}
+                    {song.categories[0].title}
                   </Badge>
                 </Link>
               </div>
-              {/* <div className="flex items-center gap-3 text-sm">
-                <Calendar className="w-4 h-4 text-primary" />
-                <span className="text-muted-foreground">Composição:</span>
-                <span>2024</span>
-              </div> */}
+              <div className="flex items-center gap-3 text-sm">
+                <Music2 className="w-4 h-4 text-primary" />
+                <span className="text-muted-foreground">Compositor:</span>
+                <span>{song.artist.name}</span>
+              </div>
               <div className="flex items-center gap-3 text-sm">
                 <Music className="w-4 h-4 text-primary" />
                 <span className="text-muted-foreground">Arranjo:</span>
@@ -182,7 +184,7 @@ export default function SongViewMain({ song }: { song: Song }) {
         </motion.div>
       </div>
 
-      <Works defaultCategory={song.category} />
+      {/* <Works defaultCategory={song.categories[0].title} /> */}
     </main>
   );
 }

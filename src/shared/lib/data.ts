@@ -32,7 +32,7 @@ export const songs: Song[] = [
       (Ah-ah-ah)
       Eu te quero baby, para de gracinha
       Eu te quero baby, você toda minha
-      `
+    `
   },
   {
     id: "7",
@@ -101,22 +101,22 @@ export const songs: Song[] = [
     description: "",
     lyrics: ` 
 
-      Rendido, eu estou aqui mais uma vez
-      Entrego em tuas mãos tudo o que tenho
-      Vem e enche-me de ti, com teu amor
-      Vem e enche-me de ti
+Rendido, eu estou aqui mais uma vez
+Entrego em tuas mãos tudo o que tenho
+Vem e enche-me de ti, com teu amor
+Vem e enche-me de ti
 
-      Rendido, eu estou aqui mais uma vez
-      Entrego em tuas mãos tudo o que tenho
-      Vem e enche-me de ti, com teu amor
-      Vem e enche-me de ti
+Rendido, eu estou aqui mais uma vez
+Entrego em tuas mãos tudo o que tenho
+Vem e enche-me de ti, com teu amor
+Vem e enche-me de ti
 
-      Vem e enche-me de ti, com teu amor
-      Vem e enche-me de ti 
+Vem e enche-me de ti, com teu amor
+Vem e enche-me de ti 
 
-      Vem e enche-me de ti, com teu amor
-      Vem e enche-me de ti
-      Enche-me de ti
+Vem e enche-me de ti, com teu amor
+Vem e enche-me de ti
+Enche-me de ti
       `
   },
 
@@ -134,22 +134,22 @@ export const songs: Song[] = [
     audioUrl: '/songs-web/voce-e-eu.mp3',
     description: "",
     lyrics: `  
-        Não duvide de mim
-        Pois eu provo que eu posso ser o seu amor outra vez
-        Não me esnobe assim
-        Eu sei que teu sorriso é tão triste sem os olhos meus
-        A primavera não tem cor
-        As noites são tão frias sem você
-        Meu coração não aguenta de dor
-        Eu preciso de uma chance pra te ter
-  
-        Eu quero ver o teu sorriso que um dia foi o meu
-        Eu quero você e eu
-        Sentir o teu perfume misturado com o meu
-        Deixa logo de besteira e beija eu
+Não duvide de mim
+Pois eu provo que eu posso ser o seu amor outra vez
+Não me esnobe assim
+Eu sei que teu sorriso é tão triste sem os olhos meus
+A primavera não tem cor
+As noites são tão frias sem você
+Meu coração não aguenta de dor
+Eu preciso de uma chance pra te ter
 
-        Beija eu
-        Deixa logo de besteira e beija eu
+Eu quero ver o teu sorriso que um dia foi o meu
+Eu quero você e eu
+Sentir o teu perfume misturado com o meu
+Deixa logo de besteira e beija eu
+
+Beija eu
+Deixa logo de besteira e beija eu
       `
   },
   {
@@ -188,28 +188,28 @@ export const songs: Song[] = [
     audioUrl: '/songs-web/nem-tentando.mp3',
     description: "",
     lyrics: ` 
-      Você anda por aí brincando de fazer amor
-      Mas eu sei em mim foi quem  você pensou
-      Quando ele não fez o que você queria
-      Sempre fui eu
+  Você anda por aí brincando de fazer amor
+  Mas eu sei em mim foi quem  você pensou
+  Quando ele não fez o que você queria
+  Sempre fui eu
 
-      Sei todos os mistérios desse corpo seu
-      Tudo era perfeito, só você e eu, mas acabou
-      Só resta dor
+  Sei todos os mistérios desse corpo seu
+  Tudo era perfeito, só você e eu, mas acabou
+  Só resta dor
 
-      Eu sei
-      Sei que ainda lembra dos versos de amor
-      Sei que ainda o sonho não se apagou 
-      Sei que quando você vai dormir me chama
+  Eu sei
+  Sei que ainda lembra dos versos de amor
+  Sei que ainda o sonho não se apagou 
+  Sei que quando você vai dormir me chama
 
-      Não tem como apagar o que a gente viveu
-      Era tão perfeito, só você e eu
-      Ficou gravado na memória
-      Nem tentando eu consigo te esquecer
-      Você se faz presente em cada amanhecer, em cada verso
-      Não tem como apagar este amor
+  Não tem como apagar o que a gente viveu
+  Era tão perfeito, só você e eu
+  Ficou gravado na memória
+  Nem tentando eu consigo te esquecer
+  Você se faz presente em cada amanhecer, em cada verso
+  Não tem como apagar este amor
 
-      Como apagar este amor
+  Como apagar este amor
       `
   },
   {
@@ -224,25 +224,25 @@ export const songs: Song[] = [
     audioUrl: '/songs-web/feito-louca.mp3',
     description: "",
     lyrics: `
-      Feito Louca, vem beijando a minha boca
-      vem botando mo pressão neste negão
+Feito Louca, vem beijando a minha boca
+vem botando mo pressão neste negão
 
-      num pique quente essa mina é envolvente
-      vou meter logo pião nesse mundão
+num pique quente essa mina é envolvente
+vou meter logo pião nesse mundão
 
-      dentro do barraco o bicho pega
-      ela vem sem frescura
-      nunca duvide do poder de uma mulher
+dentro do barraco o bicho pega
+ela vem sem frescura
+nunca duvide do poder de uma mulher
 
-      ela vai por cima dominando
-      é uma loucura
-      to viciado e sei bem o que ela quer
+ela vai por cima dominando
+é uma loucura
+to viciado e sei bem o que ela quer
 
-      feito louca, vem beijando minha boca
-      feito louca
-      me leva pra onde ce quiser
-      feito louca, vem beijando minha boca
-      feito louca 
+feito louca, vem beijando minha boca
+feito louca
+me leva pra onde ce quiser
+feito louca, vem beijando minha boca
+feito louca 
       `
   },
   {
@@ -257,22 +257,22 @@ export const songs: Song[] = [
     audioUrl: '/songs-web/amor-profundo.mp3',
     description: "",
     lyrics: `
-      Se entregou por mim naquela cruz
-      Sem merecer, morreu em meu lugar
+Se entregou por mim naquela cruz
+Sem merecer, morreu em meu lugar
 
-      Sua graça é luz na escuridão
-      Sua voz emana perdão
-      Mesmo eu, tão pecador
-      Me acolheu com teu amor
- 
-      Encheu-me com tua glória
-      Amor profundo, meu Jesus
-      Amado Jesus
+Sua graça é luz na escuridão
+Sua voz emana perdão
+Mesmo eu, tão pecador
+Me acolheu com teu amor
 
-      Hoje sou livre
-      Tua vitória
-      Livre em ti
-      Livre em ti
+Encheu-me com tua glória
+Amor profundo, meu Jesus
+Amado Jesus
+
+Hoje sou livre
+Tua vitória
+Livre em ti
+Livre em ti
       `
   },
   {
@@ -287,23 +287,23 @@ export const songs: Song[] = [
     audioUrl: '/songs-web/coincidencia.mp3',
     description: "",
     lyrics: ` 
-        Não quero acreditar que foi coincidência
-        Você é meu destino,  apesar  dessa ausencia
-        é minha estrela guia é minha paixão
+Não quero acreditar que foi coincidência
+Você é meu destino,  apesar  dessa ausencia
+é minha estrela guia é minha paixão
 
-        Não é  medo de te perder pro seu passado
-        É o medo de não ter você aqui do lado
-        nem sei como seria essa solidão
-        
-        Foi amooor, 
-        agora estou sofrendo
-        hoje Eu vivo bebendoo
-        pensando nelaa.
+Não é  medo de te perder pro seu passado
+É o medo de não ter você aqui do lado
+nem sei como seria essa solidão
 
-        Oi amor,  eu vou gritar bem alto
-        eu so quero que entendar
+Foi amooor, 
+agora estou sofrendo
+hoje Eu vivo bebendoo
+pensando nelaa.
 
-        não foi coincidencia
+Oi amor,  eu vou gritar bem alto
+eu so quero que entendar
+
+não foi coincidencia
       `
   },
   {
@@ -318,26 +318,26 @@ export const songs: Song[] = [
     audioUrl: '/songs-web/memorias.mp3',
     description: "",
     lyrics: `
-      Você anda por aí brincando de fazer amor
-      Mas eu sei em mim foi que você pensou
-      Quando ele não fez o que você queria
-      Sempre fui eu
-      Sei todos mistérios desse corpo seu
-      Tudo era perfeito só você e eu
-      Mas acabou
-      Só resta dor
+Você anda por aí brincando de fazer amor
+Mas eu sei em mim foi que você pensou
+Quando ele não fez o que você queria
+Sempre fui eu
+Sei todos mistérios desse corpo seu
+Tudo era perfeito só você e eu
+Mas acabou
+Só resta dor
 
-      Eu sei, sei que ainda lembra dos versos de amor
-      Sei que ainda o sonho não se acabou
-      Sei que quando você vai dormir me chama
+Eu sei, sei que ainda lembra dos versos de amor
+Sei que ainda o sonho não se acabou
+Sei que quando você vai dormir me chama
 
-      Não tem como apagar o que a gente viveu
-      Era tão perfeito só você e eu
-      Ficou gravado na memória
-      Nem tentando eu consigo te esquecer
-      Você se faz presente em cada amanhecer
-      Em cada verso
-      Não tem como apagar este amor
+Não tem como apagar o que a gente viveu
+Era tão perfeito só você e eu
+Ficou gravado na memória
+Nem tentando eu consigo te esquecer
+Você se faz presente em cada amanhecer
+Em cada verso
+Não tem como apagar este amor
       `
   },
   {
@@ -352,33 +352,33 @@ export const songs: Song[] = [
     audioUrl: '/songs-web/eu-te-quero-alem-de-tudo.mp3',
     description: "",
     lyrics: ` 
-      Eu te quero mais que tudo
-      Eu te quero além de tudo
-      
-      Toda terra  e mar
-      mais que o respirar
-      Eu te quero além de tudo
-      Eu te quero mais que tudo
+Eu te quero mais que tudo
+Eu te quero além de tudo
 
-      Toda terra  e mar
-      mais que o respirar
-      Eu te quero além de tudo
-      Eu te quero mais que tudo
-      
-      Eu não quero te deixar
-      Sem seu toque, eu não vou mais ficar
-      porque te quero além de tudo
-      Eu te quero além de tudo
+Toda terra  e mar
+mais que o respirar
+Eu te quero além de tudo
+Eu te quero mais que tudo
 
-      Toda terra  e mar
-      mais que o respirar
-      Eu te quero além de tudo
-      Eu te quero mais que tudo
+Toda terra  e mar
+mais que o respirar
+Eu te quero além de tudo
+Eu te quero mais que tudo
 
-      Eu não quero te soltar
-      Eu não quero te soltar
-      Eu não quero te soltar
-      Eu te quero além de tudo
+Eu não quero te deixar
+Sem seu toque, eu não vou mais ficar
+porque te quero além de tudo
+Eu te quero além de tudo
+
+Toda terra  e mar
+mais que o respirar
+Eu te quero além de tudo
+Eu te quero mais que tudo
+
+Eu não quero te soltar
+Eu não quero te soltar
+Eu não quero te soltar
+Eu te quero além de tudo
       `
   },
     

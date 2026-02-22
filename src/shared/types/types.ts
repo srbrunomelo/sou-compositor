@@ -1,6 +1,10 @@
 import { StaticImageData } from "next/image";
 import { Category } from "../lib/data";
+import { Song } from "@/src/entities/song";
 
+
+
+// REMOVER ISSO
 export interface Track {
   id: string;
   title: string;
@@ -16,23 +20,23 @@ export interface Track {
 }
 
 export interface PlayerState {
-  currentTrack: Track | null;
+  currentTrack: Song | null;
   isPlaying: boolean;
   volume: number;
   progress: number;
-  playlist: Track[];
+  playlist: Song[];
   isMuted: boolean;
   shuffle: boolean;
   repeat: 'none' | 'one' | 'all';
 }
 
 export type PlayerAction =
-  | { type: 'SET_TRACK'; payload: Track }
+  | { type: 'SET_TRACK'; payload: Song }
   | { type: 'TOGGLE_PLAY' }
   | { type: 'SET_PLAYING'; payload: boolean }
   | { type: 'SET_VOLUME'; payload: number }
   | { type: 'SET_PROGRESS'; payload: number }
-  | { type: 'SET_PLAYLIST'; payload: Track[] }
+  | { type: 'SET_PLAYLIST'; payload: Song[] }
   | { type: 'TOGGLE_MUTE' }
   | { type: 'TOGGLE_SHUFFLE' }
   | { type: 'SET_REPEAT'; payload: 'none' | 'one' | 'all' }

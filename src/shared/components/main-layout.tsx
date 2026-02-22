@@ -33,31 +33,28 @@ export default function MainLayout({
 
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-muted-foreground">
             <button
+              aria-label="Ir para o topo"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               className="hover:text-primary transition-colors cursor-pointer"
             >
               Início
             </button>
-            <button
-              onClick={() =>
-                document
-                  .getElementById("works")
-                  ?.scrollIntoView({ behavior: "smooth" })
-              }
+            <Link
+              title="Composições"
+              aria-label="Todas as composições"
+              href="/composicoes"
               className="hover:text-primary transition-colors cursor-pointer"
             >
               Composições
-            </button>
-            <button
-              onClick={() =>
-                document
-                  .getElementById("blog-preview")
-                  ?.scrollIntoView({ behavior: "smooth" })
-              }
+            </Link>
+            <Link
+              href="/blog"
+              title="Blog - Noticias sobre o mercado"
+              aria-label="Blog - Noticias sobre o mercado"
               className="hover:text-primary transition-colors cursor-pointer"
             >
               Notícias
-            </button>
+            </Link>
             <button
               onClick={() =>
                 document

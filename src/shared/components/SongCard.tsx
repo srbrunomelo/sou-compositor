@@ -8,7 +8,10 @@ import {
   DropdownMenuContent,
   DropdownMenuTrigger,
 } from "@/src/shared/components/ui/dropdown-menu";
-import { Song } from "@/src/shared/lib/data";
+
+const NEXT_PUBLIC_URL =
+  process.env.NEXT_PUBLIC_URL || "https://soucompositor.com.br";
+
 import {
   FacebookShareButton,
   TwitterShareButton,
@@ -23,6 +26,7 @@ import Image from "next/image";
 import { usePlayer } from "@/src/app/providers/player";
 
 import { event } from "@/src/shared/lib/gtag";
+import { Song } from "@/src/entities/song";
 
 interface SongCardProps {
   song: Song;
@@ -45,11 +49,8 @@ export function SongCard({ song }: SongCardProps) {
     }
   };
 
-  const shareUrl =
-    typeof window !== "undefined"
-      ? `${window.location}/composicao/${song.categorySlug}/${song.slug}`
-      : "";
-  const shareTitle = `Confira a música "${song.title} - ${song.category}" de ${song.artist}`;
+  const url = `${NEXT_PUBLIC_URL}/composicao/${song.categories[0].slug.replace("compositor-", "")}/${song.slug}`;
+  const shareTitle = `Confira a música "${song.title}" de ${song.artist.name}`;
 
   return (
     <motion.div
@@ -64,7 +65,7 @@ export function SongCard({ song }: SongCardProps) {
         <Image
           width={400}
           height={400}
-          src={song.coverUrl}
+          src={song.coverUrl.url}
           alt={song.title}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
@@ -78,14 +79,14 @@ export function SongCard({ song }: SongCardProps) {
           </Button>
         </div>
         <Badge className="absolute top-3 right-3 bg-black/80 text-white backdrop-blur-md border-white/10">
-          {song.category}
+          {song.categories[0].title}
         </Badge>
       </div>
 
       <div className="p-4 space-y-2">
         <div className="flex justify-between items-start">
           <div>
-            <Link href={`/composicao/${song.categorySlug}/${song.slug}`}>
+            <Link href={url}>
               <h3 className="font-serif text-lg font-semibold leading-tight group-hover:text-primary transition-colors cursor-pointer">
                 {song.title}
               </h3>
@@ -113,13 +114,13 @@ export function SongCard({ song }: SongCardProps) {
                 Compartilhar
               </div>
               <div className="flex gap-2 p-2">
-                <FacebookShareButton url={shareUrl} hashtag="#NovaMusica">
+                <FacebookShareButton url={url} hashtag="#NovaMusica">
                   <FacebookIcon size={32} round />
                 </FacebookShareButton>
-                <TwitterShareButton url={shareUrl} title={shareTitle}>
+                <TwitterShareButton url={url} title={shareTitle}>
                   <TwitterIcon size={32} round />
                 </TwitterShareButton>
-                <WhatsappShareButton url={shareUrl} title={shareTitle}>
+                <WhatsappShareButton url={url} title={shareTitle}>
                   <WhatsappIcon size={32} round />
                 </WhatsappShareButton>
               </div>
@@ -132,7 +133,7 @@ export function SongCard({ song }: SongCardProps) {
             {song.duration}
           </span>
 
-          <Link href={`/composicao/${song.categorySlug}/${song.slug}`}>
+          <Link href={url}>
             <Button
               variant="outline"
               size="sm"

@@ -50,7 +50,7 @@ const AudioEngine: React.FC = () => {
   return (
     <audio
       ref={audioRef}
-      src={state.currentTrack?.audioUrl}
+      src={state.currentTrack?.audioUrl.url}
       onTimeUpdate={onTimeUpdate}
       onEnded={onEnded}
     />

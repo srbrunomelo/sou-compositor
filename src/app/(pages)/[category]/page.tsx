@@ -1,10 +1,9 @@
-import { Works } from "@/src/shared/components/Works";
 import { Contact } from "@/src/shared/components/Contact";
+import { ListSongsWrapper } from "@/src/features/song/list-songs";
 
 import MainLayout from "@/src/shared/components/main-layout";
 import { Metadata } from "next";
 import { categorySEOConfig } from "@/src/shared/utils/seo";
-import { getCategoryBySlug } from "@/src/shared/lib/data";
 
 type Props = {
   params: { category: string };
@@ -18,7 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   if (!config) {
     return {
-      title: "Composições Inéditas | Bruno Melo",
+      title: `Composições Inéditas de ${slug}`,
       description:
         "Explore o portfólio de composições inéditas de Bruno Melo em diversos gêneros.",
     };
@@ -32,20 +31,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: config.title,
       description: config.description,
       type: "website",
-      images: [`/images/og-categories/${slug}.jpg`],
+      images: [`/images/system/compositor.png`],
     },
   };
 }
 
 export default async function Allworks({ params }: Props) {
   const { category } = await params;
-  const slug = category.replace("compositor-", "");
-
-  const config = getCategoryBySlug(slug);
 
   return (
     <MainLayout>
-      <Works defaultCategory={config} />
+      <ListSongsWrapper defaultCategory={category} />
       <Contact />
     </MainLayout>
   );
