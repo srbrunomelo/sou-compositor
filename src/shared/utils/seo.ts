@@ -1,4 +1,5 @@
 
+import { Song } from "@/src/entities/song";
 import { currentYear } from "@/src/shared/utils/date-helpers";
 
 export function generateSongTitle(title: string, category: string) {
@@ -16,7 +17,7 @@ export function generateSongTitle(title: string, category: string) {
   return `${selectedHook} | Bruno Melo`.slice(0, 60);
 }
 
-export function generateSongDescription(song: { title: string, category: string, lyrics?: string, description: string }) {
+export function generateSongDescription(song: Song) {
   const lyricSnippet = song.lyrics 
     ? song.lyrics.replace(/\n/g, ' ').slice(0, 80).trim() + "..."
     : "";
@@ -26,8 +27,8 @@ export function generateSongDescription(song: { title: string, category: string,
     "Gospel": `Edifique seu ministério com a canção "${song.title}". Letra de adoração profunda para artistas Gospel.`,
     "Sertanejo": `Hit de Sofrência/Sertanejo: "${song.title}". Letra inédita disponível para gravação imediata.`,
     "Pagode": `Samba/Pagode de qualidade: "${song.title}". Letra inédita com melodia marcante.`,
-    "Default": `Confira a composição "${song.title}" de ${song.category}. Letras exclusivas de Bruno Melo para artistas profissionais.`
-  }[song.category] || `Venda de música inédita: ${song.title}.`;
+    "Default": `Confira a composição "${song.title}" de ${song.categories[0].title}. Letras exclusivas de Bruno Melo para artistas profissionais.`
+  }[song.categories[0].title] || `Venda de música inédita: ${song.title}.`;
 
   const fullDescription = `${baseDescription} Trecho: "${lyricSnippet}" Entre em contato para guias e exclusividade.`;
 

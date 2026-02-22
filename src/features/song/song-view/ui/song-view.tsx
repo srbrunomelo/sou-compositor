@@ -19,6 +19,7 @@ import { usePlayer } from "@/src/app/providers/player";
 
 import { event } from "@/src/shared/lib/gtag";
 import { Song } from "@/src/entities/song";
+import { ListSongsWrapper } from "@/src/features/song/list-songs";
 
 const NEXT_PUBLIC_URL =
   process.env.NEXT_PUBLIC_URL || "https://soucompositor.com.br";
@@ -184,7 +185,7 @@ export default function SongViewMain({ song }: { song: Song }) {
         </motion.div>
       </div>
 
-      {/* <Works defaultCategory={song.categories[0].title} /> */}
+      <ListSongsWrapper defaultCategory={song.categories[0].slug} />
     </main>
   );
 }
