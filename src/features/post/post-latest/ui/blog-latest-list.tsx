@@ -1,6 +1,5 @@
 "use client";
 
-import { BlogPost } from "@/src/shared/lib/blogData";
 import { motion } from "framer-motion";
 import {
   Card,
@@ -12,9 +11,10 @@ import { Calendar } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/src/shared/components/ui/button";
 import Image from "next/image";
+import { Post } from "@/src/entities/post";
 
 type BlogLatestListProps = {
-  latestPosts: BlogPost[];
+  latestPosts: Post[];
 };
 
 export default function BlogLatestList({ latestPosts }: BlogLatestListProps) {
