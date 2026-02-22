@@ -91,8 +91,12 @@ export const slugify = (text: string) =>
     .replace(/\s+/g, "-")
     .trim();
 
-
 export const categorySEOConfig: Record<string, { title: string; description: string; keywords: string[] }> = {
+  "reggae": {
+    title: "Compositor de Reggae | Letras de Reggae para Gravação",
+    description: "Composições de qualidade para artistas profissionais. Letras inéditas de Reggae com guias exclusivas.",
+    keywords: ["compositor reggae", "comprar música reggae", "letras inéditas"],
+  },
   "sertanejo": {
     title: "Compositor de Sertanejo | Letras Inéditas e Hits para Duplas",
     description: "Encontre sua próxima música de trabalho. Letras inéditas de Sertanejo Universitário e Modão com guias exclusivas.",
@@ -112,5 +116,10 @@ export const categorySEOConfig: Record<string, { title: string; description: str
     title: "Compositor de Pagode e Samba | Letras Românticas e Batucada",
     description: "Sua próxima música de trabalho está aqui. Letras inéditas de Pagode e Samba para grupos e artistas solo.",
     keywords: ["compositor de pagode", "letras de samba inéditas", "composição para grupos de pagode"],
+  },
+  "trap": {
+    title: "Compositor de Trap | Letras de Elite e Pique de Hit 2026",
+    description: "Procurando hit de Trap? Composições exclusivas, letras de elite e guias prontas para estourar nos fluxos e plataformas.",
+    keywords: ["compositor de trap", "letras de trap inéditas", "venda de trap", "hits de trap"],
   }
 };

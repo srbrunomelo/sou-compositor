@@ -79,7 +79,6 @@ export default async function PlaylistPage({ params }: Props) {
         </div>
       </nav>
       <PlaylistView playlist={playlist} />
-
       <Contact />
       <Footer />
     </div>
