@@ -1,7 +1,6 @@
 "use client";
 
 import { Button } from "@/src/shared/components/ui/button";
-import { BlogPost } from "@/src/shared/lib/blogData";
 import { motion } from "framer-motion";
 import { Calendar } from "lucide-react";
 import Image from "next/image";
@@ -16,8 +15,9 @@ import {
   TwitterIcon,
   WhatsappIcon,
 } from "react-share";
+import { Post } from "@/src/entities/post";
 
-export default function PostView(post: BlogPost) {
+export default function PostView(post: Post) {
   const shareUrl = `https://soucompositor.com.br/blog/${post.slug}`;
   const shareTitle = `Confira a postagem "${post.title} - ${post.category}" sobre música e composição!`;
 

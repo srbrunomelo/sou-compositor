@@ -4,13 +4,13 @@ import Link from "next/link";
 
 import { Button } from "@/src/shared/components/ui/button";
 import { Card } from "@/src/shared/components/ui/card";
-import { BlogPost } from "@/src/shared/lib/blogData";
 import { Calendar } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { Post } from "@/src/entities/post";
 
 type PostListProps = {
-  posts: BlogPost[];
+  posts: Post[];
 };
 
 export default function PostList({ posts }: PostListProps) {
