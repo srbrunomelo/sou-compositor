@@ -14,12 +14,12 @@ import {
 } from "react-share";
 import Link from "next/link";
 import Image from "next/image";
-import { generateSongDescription } from "@/src/shared/utils/seo";
+// import { generateSongDescription } from "@/src/shared/utils/seo";
 import { usePlayer } from "@/src/app/providers/player";
 
 import { event } from "@/src/shared/lib/gtag";
 import { Song } from "@/src/entities/song";
-import { ListSongsWrapper } from "@/src/features/song/list-songs";
+// import { ListSongsWrapper } from "@/src/features/song/list-songs";
 
 const NEXT_PUBLIC_URL =
   process.env.NEXT_PUBLIC_URL || "https://soucompositor.com.br";
@@ -51,8 +51,6 @@ export default function SongViewMain({ song }: { song: Song }) {
 
   const shareUrl = `${NEXT_PUBLIC_URL}/${song.categories[0].slug.replace("compositor-", "")}/${song.slug}`;
   const shareTitle = `Confira a música "${song.title}" de nosso compositor ${song.artist.name}!`;
-
-  console.log("song.categories[0].slug", song.categories[0].slug);
 
   return (
     <main className="pt-24 container mx-auto px-4 max-w-5xl">

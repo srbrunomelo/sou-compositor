@@ -38,7 +38,6 @@ export const latest = (amount = 3) => `
   }
 `;
 
-
 export const postBySlug = (slug: string) => `
   query post {
     post(where: {slug: "${slug}"}) {
