@@ -42,7 +42,7 @@ export default function PlaylistView({ playlist }: PlaylistViewProps) {
   };
 
   const shareUrl = `${NEXT_PUBLIC_URL}/playlist/${playlist.slug}`;
-  const shareTitle = `Confira a playlist "${playlist.title}" de nosso compositor ${playlist.artist?.name || ""}!`;
+  const shareTitle = `Confira a playlist "${playlist.title}" de nosso compositor ${playlist.artists[0].name || ""}}!`;
 
   return (
     <main className="pt-24 container mx-auto px-4 max-w-5xl mb-20">

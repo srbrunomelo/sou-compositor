@@ -5,10 +5,12 @@ export interface Playlist {
   title: string;
   description: string;
   slug: string;
-  artist: {
-    name: string;
-    username: string;
-  }
+  artists: [
+    {
+      name: string;
+      username: string;
+    }
+  ]
   image: {
     url: string;
   };
