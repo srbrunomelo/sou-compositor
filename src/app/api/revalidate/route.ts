@@ -12,10 +12,10 @@ export async function GET(request: NextRequest) {
 
   if (tag) {
     revalidateTag(tag, 'max')
-    return Response.json({ revalidated: true, now: Date.now() })
+    return NextResponse.json({ revalidated: true, now: Date.now() })
   }
 
-  return Response.json({
+  return NextResponse.json({
     revalidated: false,
     now: Date.now(),
     message: 'Missing tag to revalidate',

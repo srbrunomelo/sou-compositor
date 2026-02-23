@@ -12,7 +12,7 @@ export const fetchHygraphQuery = async (
     },
     body: JSON.stringify({ query }),
     next: {
-      revalidate: revalidate,
+      // revalidate: revalidate,
       tags: [revalidateTag],
     },
   });
