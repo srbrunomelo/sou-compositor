@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     images: ["/images/cover/gospel.png"],
   },
   alternates: {
-    canonical: "https://soucompositor.com.br",
+    canonical: process.env.NEXT_PUBLIC_URL || "https://soucompositor.com.br",
   },
 };
 

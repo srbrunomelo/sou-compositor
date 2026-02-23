@@ -26,6 +26,10 @@ export const generateMetadata = async ({ params }: PageProps) => {
   const response = await fetchHygraphQuery(songBySlug(slug), `song-${slug}`);
   const song = response.song as Song;
 
+  const canonical =
+    `${process.env.NEXT_PUBLIC_URL}/composicao/${song.categories[0].slug}/${song.slug}` ||
+    `https://soucompositor.com.br/composicao/${song.categories[0].slug}/${song.slug}`;
+
   if (song) {
     return {
       title: generateSongTitle(song),
@@ -40,6 +44,9 @@ export const generateMetadata = async ({ params }: PageProps) => {
         title: generateSongTitle(song),
         description: generateSongDescription(song),
         images: [song.coverUrl.url],
+      },
+      alternates: {
+        canonical: canonical,
       },
     };
   }

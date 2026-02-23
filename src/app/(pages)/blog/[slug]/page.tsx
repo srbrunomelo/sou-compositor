@@ -19,6 +19,10 @@ export const generateMetadata = async ({ params }: PageProps) => {
   const data = await fetchHygraphQuery(postBySlug(slug), `post-${slug}`);
   const post = data.post;
 
+  const canonical =
+    `${process.env.NEXT_PUBLIC_URL}/blog/${post.slug}` ||
+    `https://soucompositor.com.br/blog/${post.slug}`;
+
   if (post) {
     return {
       title: post.title,
@@ -28,6 +32,9 @@ export const generateMetadata = async ({ params }: PageProps) => {
         title: post.title,
         description: post.excerpt,
         images: [post.image],
+      },
+      alternates: {
+        canonical: canonical,
       },
     };
   }

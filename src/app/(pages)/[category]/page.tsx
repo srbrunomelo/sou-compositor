@@ -15,11 +15,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const config = categorySEOConfig[slug as keyof typeof categorySEOConfig];
 
+  const canonical =
+    `${process.env.NEXT_PUBLIC_URL}/${category}` ||
+    `https://soucompositor.com.br/${category}`;
+
   if (!config) {
     return {
       title: `Composições Inéditas de ${slug}`,
       description:
         "Explore o portfólio de composições inéditas em diversos gêneros.",
+      alternates: {
+        canonical: canonical,
+      },
     };
   }
 
@@ -32,6 +39,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: config.description,
       type: "website",
       images: [`/images/system/compositor.png`],
+    },
+    alternates: {
+      canonical: canonical,
     },
   };
 }

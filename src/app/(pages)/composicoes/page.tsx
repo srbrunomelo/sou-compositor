@@ -3,6 +3,10 @@ import { ListSongsWrapper } from "@/src/features/song/list-songs";
 import MainLayout from "@/src/shared/components/main-layout";
 import { Metadata } from "next";
 
+const canonical =
+  `${process.env.NEXT_PUBLIC_URL}/composicoes` ||
+  `https://soucompositor.com.br/composicoes`;
+
 export const metadata: Metadata = {
   title: {
     default: "Compositor Profissional | Sertanejo, Gospel, Funk e Pagode",
@@ -17,7 +21,7 @@ export const metadata: Metadata = {
     "compositor de pagode",
     "venda de músicas",
   ],
-  authors: [{ name: "Seu Nome" }],
+  authors: [{ name: "Bruno Melo" }],
   openGraph: {
     title: "Compositor Profissional - Hits Inéditos",
     description:
@@ -25,6 +29,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "pt_BR",
     images: ["/images/system/compositor.png"],
+  },
+  alternates: {
+    canonical: canonical,
   },
 };
 

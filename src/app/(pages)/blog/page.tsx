@@ -7,6 +7,9 @@ import { ArrowLeft } from "lucide-react";
 import { Metadata } from "next";
 import Link from "next/link";
 
+const canonical =
+  `${process.env.NEXT_PUBLIC_URL}/blog` || `https://soucompositor.com.br/blog`;
+
 export const metadata: Metadata = {
   title: {
     default: "Notícias sobre o mercado musical | Sou Compositor",
@@ -14,6 +17,9 @@ export const metadata: Metadata = {
   },
   openGraph: {
     images: ["/images/system/compositor.png"],
+  },
+  alternates: {
+    canonical: canonical,
   },
 };
 
