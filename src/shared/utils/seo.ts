@@ -14,7 +14,7 @@ export function generateSongTitle(song: Song) {
   const genre = categories?.[0]?.title || 'Música';
   
   const titlePatterns = [
-    `${title} - ${artistName} | ${genre} Inédito`,
+    `${title} - ${artistName} | composição ${genre} Inédito`,
     `${title} (Composição) - ${artistName} | Letra e Áudio`,
     `${title} - ${artistName} | Música ${genre} para Ouvir`,
     `${title} - ${artistName} | Composição Original de ${genre}`,
@@ -31,23 +31,7 @@ export function generateSongTitle(song: Song) {
  * @param {Object} songData - Dados da música
  * @returns {string} Descrição otimizada para SEO
  */
-export function generateSongDescription(song: Song) {
-  // const lyricSnippet = song.lyrics 
-  //   ? song.lyrics.replace(/\n/g, ' ').slice(0, 80).trim() + "..."
-  //   : "";
-
-  // const baseDescription = {
-  //   "Funk": `Procurando a próxima música de trabalho? Confira "${song.title}", composição de Funk com letra exclusiva e guia pronta.`,
-  //   "Gospel": `Edifique seu ministério com a canção "${song.title}". Letra de adoração profunda para artistas Gospel.`,
-  //   "Sertanejo": `Hit de Sofrência/Sertanejo: "${song.title}". Letra inédita disponível para gravação imediata.`,
-  //   "Pagode": `Samba/Pagode de qualidade: "${song.title}". Letra inédita com melodia marcante.`,
-  //   "Default": `Confira a composição "${song.title}" de ${song.categories[0].title}. Letras exclusivas de Bruno Melo para artistas profissionais.`
-  // }[song.categories[0].title] || `Venda de música inédita: ${song.title}.`;
-
-  // const fullDescription = `${baseDescription} Trecho: "${lyricSnippet}" Entre em contato para guias e exclusividade.`;
-
-  // return fullDescription.slice(0, 155);
-
+export function generateSongDescription(song: Song) { 
   const { title, description, lyrics, artist, categories, duration } = song;
   const artistName = artist?.name || 'Bruno Melo';
   const genre = categories?.[0]?.title || 'samba/pagode';
@@ -121,5 +105,15 @@ export const categorySEOConfig: Record<string, { title: string; description: str
     title: "Compositor de Trap | Letras de Elite e Pique de Hit 2026",
     description: "Procurando hit de Trap? Composições exclusivas, letras de elite e guias prontas para estourar nos fluxos e plataformas.",
     keywords: ["compositor de trap", "letras de trap inéditas", "venda de trap", "hits de trap"],
+  },
+  "rock": {
+    title: "Compositor de Rock | Letras de Elite e Pique de Hit 2026",
+    description: "Procurando hit de Rock? Composições exclusivas, letras de elite e guias prontas para estourar nos fluxos e plataformas.",
+    keywords: ["compositor de rock", "letras de rock inéditas", "venda de rock", "hits de rock"],
+  },
+  "pop": {
+    title: "Compositor de Pop | Letras de Elite e Pique de Hit 2026", 
+    description: "Procurando hit de Pop? Composições exclusivas, letras de elite e guias prontas para estourar nos fluxos e plataformas.",
+    keywords: ["compositor de pop", "letras de pop inéditas", "venda de pop", "hits de pop"],
   }
 };
