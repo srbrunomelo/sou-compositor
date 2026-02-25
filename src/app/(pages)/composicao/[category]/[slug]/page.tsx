@@ -33,7 +33,7 @@ export const generateMetadata = async ({ params }: PageProps) => {
   if (song) {
     return {
       title: generateSongTitle(song),
-      description: generateSongDescription(song),
+      description: song.description || generateSongDescription(song),
       keywords: [
         song.categories[0].title,
         song.title,

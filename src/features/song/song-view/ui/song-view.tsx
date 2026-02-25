@@ -19,6 +19,7 @@ import { usePlayer } from "@/src/app/providers/player";
 
 import { event } from "@/src/shared/lib/gtag";
 import { Song } from "@/src/entities/song";
+import { generateSongDescription } from "@/src/shared/utils/seo";
 // import { ListSongsWrapper } from "@/src/features/song/list-songs";
 
 const NEXT_PUBLIC_URL =
@@ -115,8 +116,10 @@ export default function SongViewMain({ song }: { song: Song }) {
               </div>
               <div className="flex items-center gap-3 text-sm">
                 <Music className="w-4 h-4 text-primary" />
-                <span className="text-muted-foreground">Arranjo:</span>
-                <span>Original</span>
+                <span className="text-muted-foreground">
+                  Composição Inedita?
+                </span>
+                <span>Sim</span>
               </div>
             </div>
 
@@ -157,9 +160,9 @@ export default function SongViewMain({ song }: { song: Song }) {
             <h1 className="text-5xl md:text-6xl font-serif font-bold tracking-tight">
               {song.title}
             </h1>
-            {/* <p className="text-xl text-muted-foreground font-light leading-relaxed">
-              {generateSongDescription(song)} ...
-            </p> */}
+            <p className="text-xl text-muted-foreground font-light leading-relaxed">
+              {song.description || generateSongDescription(song)}
+            </p>
           </header>
 
           {(song.lyrics && (
