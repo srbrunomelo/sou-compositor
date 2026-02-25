@@ -117,7 +117,7 @@ export default function SongViewMain({ song }: { song: Song }) {
               <div className="flex items-center gap-3 text-sm">
                 <Music className="w-4 h-4 text-primary" />
                 <span className="text-muted-foreground">
-                  Composição Inedita?
+                  Composição inédita?
                 </span>
                 <span>Sim</span>
               </div>
