@@ -39,11 +39,21 @@ export const generateMetadata = async ({ params }: PageProps) => {
         song.title,
         "Composição Musical",
         "lançamento",
+        "musica inedita disponível para gravação",
       ],
       openGraph: {
         title: generateSongTitle(song),
         description: generateSongDescription(song),
-        images: [song.coverUrl.url],
+        images: song.coverUrl?.url
+          ? [
+              {
+                url: song.coverUrl.url,
+                width: 1200,
+                height: 630,
+                alt: song.title,
+              },
+            ]
+          : [`/images/system/compositor.png`],
       },
       alternates: {
         canonical: canonical,
