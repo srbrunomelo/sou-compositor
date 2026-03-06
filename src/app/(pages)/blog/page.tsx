@@ -7,8 +7,8 @@ import { ArrowLeft } from "lucide-react";
 import { Metadata } from "next";
 import Link from "next/link";
 
-const canonical =
-  `${process.env.NEXT_PUBLIC_URL}/blog` || `https://soucompositor.com.br/blog`;
+const baseUrl = process.env.NEXT_PUBLIC_URL ?? 'https://soucompositor.com.br';
+const canonical = `${baseUrl}/blog`;
 
 export const metadata: Metadata = {
   title: {

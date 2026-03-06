@@ -24,9 +24,8 @@ export async function generateMetadata({ params }: Props) {
   );
   const playlist = response.playlist as Playlist;
 
-  const canonical =
-    `${process.env.NEXT_PUBLIC_URL}/playlist/${playlist.slug}/` ||
-    `https://soucompositor.com.br/playlist/${playlist.slug}/`;
+  const baseUrl = process.env.NEXT_PUBLIC_URL ?? 'https://soucompositor.com.br';
+  const canonical = `${baseUrl}/playlist/${playlist.slug}`;
 
   return {
     title: playlist.title,

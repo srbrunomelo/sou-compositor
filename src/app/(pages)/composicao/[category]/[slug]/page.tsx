@@ -26,9 +26,9 @@ export const generateMetadata = async ({ params }: PageProps) => {
   const response = await fetchHygraphQuery(songBySlug(slug), `song-${slug}`);
   const song = response.song as Song;
 
-  const canonical =
-    `${process.env.NEXT_PUBLIC_URL}/composicao/${song.categories[0].slug}/${song.slug}` ||
-    `https://soucompositor.com.br/composicao/${song.categories[0].slug}/${song.slug}`;
+  const baseUrl = process.env.NEXT_PUBLIC_URL ?? 'https://soucompositor.com.br';
+  const categorySlug = song.categories[0].slug.replace('compositor-', '');
+  const canonical = `${baseUrl}/composicao/${categorySlug}/${song.slug}`;
 
   if (song) {
     return {

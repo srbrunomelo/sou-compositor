@@ -15,9 +15,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const config = categorySEOConfig[slug as keyof typeof categorySEOConfig];
 
-  const canonical =
-    `${process.env.NEXT_PUBLIC_URL}/${category}` ||
-    `https://soucompositor.com.br/${category}`;
+  const baseUrl = process.env.NEXT_PUBLIC_URL ?? 'https://soucompositor.com.br';
+  const canonical = `${baseUrl}/${category}`;
 
   if (!config) {
     return {

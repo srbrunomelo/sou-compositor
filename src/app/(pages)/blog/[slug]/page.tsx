@@ -19,9 +19,8 @@ export const generateMetadata = async ({ params }: PageProps) => {
   const data = await fetchHygraphQuery(postBySlug(slug), `post-${slug}`);
   const post = data.post;
 
-  const canonical =
-    `${process.env.NEXT_PUBLIC_URL}/blog/${post.slug}` ||
-    `https://soucompositor.com.br/blog/${post.slug}`;
+  const baseUrl = process.env.NEXT_PUBLIC_URL ?? 'https://soucompositor.com.br';
+  const canonical = `${baseUrl}/blog/${post.slug}`;
 
   if (post) {
     return {
